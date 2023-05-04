@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/4471f02c2e.js" crossorigin="anonymous"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 </head>
 <body>
     <section class="sub-header">
@@ -70,24 +71,25 @@
                 <input type="text" id="name" placeholder="Enter your name" required>
                 <input type="email" id="email" placeholder="Enter your Email" required>
                 <input type="text" id="subject" placeholder="Enter your Subject" required>
-                <textarea rows="8"  id="message"placeholder="Message"></textarea>
+                <textarea rows="8"  id="message" placeholder="Message"></textarea>
                 <button type="submit" class="hero-btn explore-btn" id="hbt1">Send Message</button>
             </form>
         </div>
     </div>
 </section>
 
-<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<!-- Email  -->
+ 
+
 <script>
     function sendemail() {
         Email.send({
-            SecureToken : "7e4c4740-d7a9-426d-9f9d-d74aa99deb00",
+            SecureToken : "68b8da02-e50d-4221-89f1-473d7d504ebe",
             To : 'atharvat.student@gmail.com',
             From : document.getElementById("email").value,
-            Subject : "Thank you for enquiry",
-            Body : "Name: "+getElementById("name").value
-            +"<br> Email: "+ getElementById("email").value
-            +"<br> Message : "+ getElementById("message").value
+            Subject : document.getElementById("subject").value,
+            Body : "Name: "+  document.getElementById("name").value +"<br> Email: "+  document.getElementById("email").value +"<br> Message : "+  document.getElementById("message").value
         }).then(
         message => alert("Message Sent sucessfully")
         );
