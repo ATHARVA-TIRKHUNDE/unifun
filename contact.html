@@ -66,16 +66,33 @@
             </div>
         </div>
         <div class="contact-col">
-            <form class="contact-form">
-                <input type="text" placeholder="Enter your name" required>
-                <input type="email" placeholder="Enter your Email" required>
-                <input type="text" placeholder="Enter your Subject" required>
-                <textarea rows="8" placeholder="Message"></textarea>
+            <form class="contact-form" onsubmit="sendemail(); reset(); return false">
+                <input type="text" id="name" placeholder="Enter your name" required>
+                <input type="email" id="email" placeholder="Enter your Email" required>
+                <input type="text" id="subject" placeholder="Enter your Subject" required>
+                <textarea rows="8"  id="message"placeholder="Message"></textarea>
                 <button type="submit" class="hero-btn explore-btn" id="hbt1">Send Message</button>
             </form>
         </div>
     </div>
 </section>
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    function sendemail() {
+        Email.send({
+            SecureToken : "6be8ec54-c704-4d2b-bd41-2c4e31b7f757",
+            To : 'atharvat.student@gmail.com',
+            From : document.getElementById("email").value,
+            Subject : "Thank you for enquiry",
+            Body : "Name: "+getElementById("name").value
+            +"<br> Email: "+ getElementById("email").value
+            +"<br> Message : "+ getElementById("message").value
+        }).then(
+        message => alert("Message Sent sucessfully")
+        );
+    }
+</script>
 
 
 <!-- --------------------- Footer ---------------------- -->
